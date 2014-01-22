@@ -1,5 +1,9 @@
 FarmersMarket::Application.routes.draw do
+  resources :farmers
+
+
   get "welcome/index"
+  match 'register' => 'farmers#new', :as => :register
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
