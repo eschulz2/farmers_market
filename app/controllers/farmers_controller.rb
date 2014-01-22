@@ -12,44 +12,40 @@ class FarmersController < ApplicationController
 
   # GET /farmers/1
   # GET /farmers/1.json
+  # GET /farmers/1
   def show
     @farmer = Farmer.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @farmer }
-    end
+    @is_admin = current_user && current_user.id == @farmer.id
   end
 
   # GET /farmers/new
-  # GET /farmers/new.json
   def new
-    @farmer = Farmer.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @farmer }
+    if current_user
+      redirect_to root_path, :notice => "You are already registered" 
     end
+    @farmer = Farmer.new
   end
 
   # GET /farmers/1/edit
   def edit
     @farmer = Farmer.find(params[:id])
+    if current_user.id != @farmer.id
+      redirect_to @farmer
+    end
   end
 
   # POST /farmers
   # POST /farmers.json
-  def create
+  
+  # POST /farmers
+  def create    
     @farmer = Farmer.new(params[:farmer])
 
-    respond_to do |format|
-      if @farmer.save
-        format.html { redirect_to @farmer, notice: 'Farmer was successfully created.' }
-        format.json { render json: @farmer, status: :created, location: @farmer }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @farmer.errors, status: :unprocessable_entity }
-      end
+    if @farmer.save
+      session[:farmer_id] = @farmer.id
+      redirect_to @farmer, notice: 'Farmer was successfully created.'      
+    else
+      render action: "new"
     end
   end
 

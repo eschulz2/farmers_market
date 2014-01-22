@@ -1,9 +1,16 @@
 FarmersMarket::Application.routes.draw do
+  get "sessions/new"
+
   resources :farmers
 
-
+  root :to => 'welcome#index'
   get "welcome/index"
   match 'register' => 'farmers#new', :as => :register
+
+  #session
+  match '/login' => 'sessions#new', :as => :login
+  match '/logout' => 'sessions#destroy', :as => :logout
+  post '/sessions/create' => 'sessions#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -54,7 +61,7 @@ FarmersMarket::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+
 
   # See how all your routes lay out with "rake routes"
 

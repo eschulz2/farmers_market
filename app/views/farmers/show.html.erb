@@ -29,3 +29,7 @@
 
 <%= link_to 'Edit', edit_farmer_path(@farmer) %> |
 <%= link_to 'Back', farmers_path %>
+
+<% if (@is_admin) %>
+  <%= link_to 'Edit', edit_farmer_path(@farmer) %>
+<% end %>
