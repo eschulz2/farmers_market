@@ -3,7 +3,7 @@ FarmersMarket::Application.routes.draw do
 
   resources :farmers
 
-  root :to => 'welcome#index'
+  root 'welcome#index'
   get "welcome/index"
   match 'register' => 'farmers#new', :as => :register
 
