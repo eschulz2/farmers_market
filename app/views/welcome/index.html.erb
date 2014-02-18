@@ -10,13 +10,4 @@ are a farmer and want to sell your produce, please register.</p>
     <th>Produce</th>
     <th>Produce price</th>
   </tr>
-
-<% @farmers.each do |farmer| %>
-  <tr>
-    <td><%= link_to farmer.name, farmer %></td>    
-    <td><%= link_to farmer.farm, farmer %></td>
-    <td><%= farmer.produce %></td>
-    <td><%= number_to_currency(farmer.produce_price, :unit => "$") %></td>
-  </tr>
-<% end %>
 </table>
