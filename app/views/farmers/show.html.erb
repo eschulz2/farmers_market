@@ -22,13 +22,10 @@
 
 <p>
   <b>Produce price:</b>
-  <%= @farmer.produce_price %>
+  <%= number_to_currency(@farmer.produce_price, :unit => "$") %>
 </p>
 
 
-
-<%= link_to 'Edit', edit_farmer_path(@farmer) %> |
-<%= link_to 'Back', farmers_path %>
 
 <% if (@is_admin) %>
   <%= link_to 'Edit', edit_farmer_path(@farmer) %>
