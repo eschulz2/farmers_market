@@ -6,7 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
+gem 'sqlite3'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -25,6 +25,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
 gem 'bcrypt-ruby', '~> 3.0.0', :require => "bcrypt"
 
 group :production do
