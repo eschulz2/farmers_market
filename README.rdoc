@@ -1,1 +1,1 @@
-This farmers' market allows users to create pages to sell their products.  The payments will immediately go into their accounts after transactions are complete.
+This farmers' market allows users to post products for sale.  The payments feature will allow payment for the products to be immediately put into the farmers' accounts.
