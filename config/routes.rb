@@ -7,6 +7,7 @@ FarmersMarket::Application.routes.draw do
 
   root :to => "welcome#index"
   get "welcome/index"
+  get "/farmers", to: "/"
   match 'register' => 'farmers#new', :as => :register
   match '/farmers/:action(/:farmer_id)', :controller => 'farmers'
 
