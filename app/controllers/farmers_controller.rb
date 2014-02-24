@@ -53,15 +53,10 @@ class FarmersController < ApplicationController
   # PUT /farmers/1.json
   def update
     @farmer = Farmer.find(params[:id])
-
-    respond_to do |format|
-      if @farmer.update_attributes(params[:farmer])
-        format.html { redirect_to @farmer, notice: 'Farmer was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @farmer.errors, status: :unprocessable_entity }
-      end
+    if @farmer.update_attributes(params[:farmer])
+      redirect_to @farmer, notice: 'Farmer was successfully updated.'
+    else
+      render :action => 'edit'
     end
   end
 
