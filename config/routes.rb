@@ -1,29 +1,19 @@
 FarmersMarket::Application.routes.draw do
   
 
+  get "sessions/new"
+
+  resources :farmers
+
   root :to => "welcome#index"
-  
-    #farmer
-    match 'register' => 'farmers#new', :as => :register
-    match '/farmers/:action(/:farmer_id)', :controller => 'farmers'
-    
-    #session
-    match '/login' => 'sessions#new', :as => :login
-    match '/logout' => 'sessions#destroy', :as => :logout
-    post '/sessions/create' => 'sessions#create'
-  # get "sessions/new"
+  get "welcome/index"
+  match 'register' => 'farmers#new', :as => :register
+  match '/farmers/:action(/:farmer_id)', :controller => 'farmers'
 
-  # resources :farmers
-
-  # root :to => "welcome#index"
-  # get "welcome/index"
-  # match 'register' => 'farmers#new', :as => :register
-  # match '/farmers/:action(/:farmer_id)', :controller => 'farmers'
-
-  # #session
-  # match '/login' => 'sessions#new', :as => :login
-  # match '/logout' => 'sessions#destroy', :as => :logout
-  # post '/sessions/create' => 'sessions#create'
+  #session
+  match '/login' => 'sessions#new', :as => :login
+  match '/logout' => 'sessions#destroy', :as => :logout
+  post '/sessions/create' => 'sessions#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
