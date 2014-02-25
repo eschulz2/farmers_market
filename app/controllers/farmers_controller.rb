@@ -2,12 +2,11 @@ class FarmersController < ApplicationController
   # GET /farmers
   # GET /farmers.json
   def index
-      redirect_to root_url
-    # @farmers = Farmer.all
+    @farmers = Farmer.all
 
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.json { render json: @farmers }
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @farmers }
     end
   end
 
