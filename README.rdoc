@@ -1,1 +1,1 @@
-This farmers' market allows users to post products for sale.  The payments feature will allow payment for the products to be immediately put into the farmers' accounts.
+This farmers' market allows users to post products for sale.  The payments feature will allow payment for the products to be immediately put into the farmers' accounts.  This app might be ideal for experimentation with Sendgrid.
